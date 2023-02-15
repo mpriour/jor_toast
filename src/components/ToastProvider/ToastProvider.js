@@ -10,8 +10,8 @@ const toastQueue = new Queue();
 function ToastProvider({ children }) {
     const [toasts, setToasts] = useState(() => [...toastQueue.items]);
 
-    const addToast = useCallback(function (toastDetails) {
-        const newQueue = toastQueue.enqueue({ id: crypto.randomUUID(), ...toastDetails });
+    const addToast = useCallback(function (variant, message) {
+        const newQueue = toastQueue.enqueue({ id: crypto.randomUUID(), variant, message });
         setToasts(newQueue);
     }, []);
 

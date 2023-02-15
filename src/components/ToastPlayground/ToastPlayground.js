@@ -15,7 +15,7 @@ function ToastPlayground() {
 
     function handleSubmit(evt){
       evt.preventDefault();
-      addToast({message, variant: activeVariant});
+      addToast(message, activeVariant);
       setMessage("");
       setActiveVariant(VARIANT_OPTIONS[0])
     }
