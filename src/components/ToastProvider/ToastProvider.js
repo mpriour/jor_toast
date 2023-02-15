@@ -25,14 +25,20 @@ function ToastProvider({ children }) {
         setToasts(newQueue);
     }, []);
 
+    const flushToasts = useCallback(function () {
+        const newQueue = toastQueue.flush();
+        setToasts(newQueue);
+    }, []);
+
     const toastsControl = useMemo(
         () => ({
             toasts,
             addToast,
             popToast,
             removeToast,
+            flushToasts,
         }),
-        [toasts, addToast, popToast, removeToast]
+        [toasts, addToast, popToast, removeToast, flushToasts]
     );
 
     return <ToastContext.Provider value={toastsControl}>{children}</ToastContext.Provider>;

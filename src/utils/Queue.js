@@ -21,6 +21,10 @@ class Queue{
         this.items = newItems;
         return this.items;
     }
+    flush(){
+        this.items = [];
+        return this.items;
+    }
 }
 
 export default Queue;
