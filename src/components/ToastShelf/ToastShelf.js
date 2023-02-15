@@ -1,4 +1,5 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
+import useEscapeKey from "../../hooks/useEscapeKey";
 
 import Toast from "../Toast";
 import { ToastContext } from "../ToastProvider";
@@ -7,17 +8,7 @@ import styles from "./ToastShelf.module.css";
 
 function ToastShelf() {
     const { toasts, removeToast, flushToasts } = useContext(ToastContext);
-    useEffect(() => {
-        function handleEscKey(evt) {
-            if (evt.code === "Escape") {
-                flushToasts();
-            }
-        }
-        window.addEventListener("keydown", handleEscKey);
-        return () => {
-            window.removeEventListener("keydown", handleEscKey);
-        };
-    }, [flushToasts]);
+    useEscapeKey(flushToasts);
     return (
         <ol className={styles.wrapper} role="region" aria-live="assertive" aria-label="Notifications">
             {toasts.map(({ id, variant, message }, index) => (
