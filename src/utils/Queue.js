@@ -1,27 +1,26 @@
-class Queue{
+class Queue {
     items;
-    constructor(items = []){
+    constructor(items = []) {
         this.items = items;
     }
-    enqueue(item){
+    enqueue(item) {
         const newItems = [...this.items];
         newItems.push(item);
         this.items = newItems;
         return this.items;
     }
-    dequeue(){
+    dequeue() {
         const newItems = [...this.items];
         newItems.shift();
         this.items = newItems;
         return this.items;
     }
-    remove(index=0){
-        const newItems = [...this.items];
-        newItems.splice(index, 1);
+    remove(id) {
+        const newItems = this.items.filter((item) => item.id !== id);
         this.items = newItems;
         return this.items;
     }
-    flush(){
+    flush() {
         this.items = [];
         return this.items;
     }

@@ -27,7 +27,7 @@ function ToastPlayground() {
                 <h1>Toast Playground</h1>
             </header>
 
-            <ToastShelf />
+            <ToastShelf autoDismiss={true} />
 
             <form onSubmit={handleSubmit}>
                 <div className={styles.controlsWrapper}>

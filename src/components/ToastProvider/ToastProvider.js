@@ -20,8 +20,8 @@ function ToastProvider({ children }) {
         setToasts(newQueue);
     }, []);
 
-    const removeToast = useCallback(function (index) {
-        const newQueue = toastQueue.remove(index);
+    const removeToast = useCallback(function (id) {
+        const newQueue = toastQueue.remove(id);
         setToasts(newQueue);
     }, []);
 
